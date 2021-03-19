@@ -1,0 +1,55 @@
+.gridContainer{
+    outline: 5px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    width: 630px;
+}
+.eachline{
+    display: flex;
+    justify-content: space-around;
+}
+.name{
+    height: 25px;
+    width: 50px;
+    align-items: center;
+    justify-content: center;
+
+}   
+.hiHat{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.bass{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.snare{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.ride{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.gridBox{   
+    width: 25px;
+    height: 25px;
+    outline: 1px solid red;
+    margin: 5px;
+}
+.fill{
+    background-color: royalblue;
+    opacity: 90%;
+}
