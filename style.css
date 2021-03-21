@@ -58,3 +58,7 @@
 
     animation-duration: 1s;
 }
+
+.hidden{
+    display: none;
+}
