@@ -8,10 +8,30 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- <button id="hihat">Hi Hat</button> -->
-    <div class = 'level'>
+<div class = 'startContainer'>
+    <h1 class = 'startheader'>Drum programming thing game!</h1>
+    <div class = gameRules>
+        <h3 id='rulesHeader'>Rules</h3>
+        <ul>
+            <li>You gotta do it</li>
+        </ul>
+    </div>
+    <button id = 'start'>Start!</button>
+</div>
+<div class = 'loss hidden'>
+    <h1>You loose!</h1>
+    <p>Maybe you should practice...</p>
+    <button id = 'tryAgain'>Try Again?</button>
+</div>
+<div class = 'win hidden'>
+    <h1>You Win!</h1>
+    <p>You're not bad!</p>
+    <button id = 'playAgain'>Play Again?</button>
+</div>
+    <div class = 'level hidden'>
         <h1 id="levelHeader">Level 1</h1>
         <h3>Rock the Beat!</h3>
+        <p class = "discription">Let's start out easy! Quarter notes on the hi hat, 4 on the floor and snare on 2 & 4!</p>
         <button class= 'playBeat' data-beat="1">Play Beat</button>
         <div class = 'gridContainer'>
         <div class = "eachLine">
@@ -19,76 +39,76 @@
                 <h4 class = "name">Hi Hat</h3>
                 <span id = 'hh0' class='hh gridBox box0'>1</span>
                 <span id = 'hh1' class='hh gridBox box1'></span>
-                <span id = 'hh2' class='hh gridBox box2'></span>
-                <span id = 'hh3' class='hh gridBox box3'></span>
+                <span id = 'hh2' class='hh gridBox box2'>&</span>
+                <span id = 'hh3' class='hh gridBox box3'></span>    
                 <span id = 'hh4' class='hh gridBox box4'>2</span>
                 <span id = 'hh5' class='hh gridBox box5'></span>
-                <span id = 'hh6' class='hh gridBox box6'></span>
+                <span id = 'hh6' class='hh gridBox box6'>&</span>
                 <span id = 'hh7' class='hh gridBox box7'></span>
                 <span id = 'hh8' class='hh gridBox box8'>3</span>
                 <span id = 'hh9' class='hh gridBox box9'></span>
-                <span id = 'hh10' class='hh gridBox box10'></span>
+                <span id = 'hh10' class='hh gridBox box10'>&</span>
                 <span id = 'hh11' class='hh gridBox box11'></span>
                 <span id = 'hh12' class='hh gridBox box12'>4</span>
                 <span id = 'hh13' class='hh gridBox box13'></span>
-                <span id = 'hh14' class='hh gridBox box14'></span>
+                <span id = 'hh14' class='hh gridBox box14'>&</span>
                 <span id = 'hh15' class='hh gridBox box15'></span>
             </span>
             <span class = 'snare' data-drum="2">
                 <h4 class = "name">Snare</h3>
                 <span id = 'sn0' class='sn gridBox box0'>1</span>
                 <span id = 'sn1' class='sn gridBox box1'></span>
-                <span id = 'sn2' class='sn gridBox box2'></span>
+                <span id = 'sn2' class='sn gridBox box2'>&</span>
                 <span id = 'sn3' class='sn gridBox box3'></span>
                 <span id = 'sn4' class='sn gridBox box4'>2</span>
                 <span id = 'sn5' class='sn gridBox box5'></span>
-                <span id = 'sn6' class='sn gridBox box6'></span>
+                <span id = 'sn6' class='sn gridBox box6'>&</span>
                 <span id = 'sn7' class='sn gridBox box7'></span>
                 <span id = 'sn8' class='sn gridBox box8'>3</span>
                 <span id = 'sn9' class='sn gridBox box9'></span>
-                <span id = 'sn10' class='sn gridBox box10'></span>
+                <span id = 'sn10' class='sn gridBox box10'>&</span>
                 <span id = 'sn11' class='sn gridBox box11'></span>
                 <span id = 'sn12' class='sn gridBox box12'>4</span>
                 <span id = 'sn13' class='sn gridBox box13'></span>
-                <span id = 'sn14' class='sn gridBox box14'></span>
+                <span id = 'sn14' class='sn gridBox box14'>&</span>
                 <span id = 'sn15' class='sn gridBox box15'></span>
             </span>
             <span class = 'bass' data-drum="3">
                 <h4 class = "name">Bass</h3>
                 <span id = 'b0' class='ba gridBox box0'>1</span>
                 <span id = 'b1' class='ba gridBox box1'></span>
-                <span id = 'b2' class='ba gridBox box2'></span>
+                <span id = 'b2' class='ba gridBox box2'>&</span>
                 <span id = 'b3' class='ba gridBox box3'></span>
                 <span id = 'b4' class='ba gridBox box4'>2</span>
                 <span id = 'b5' class='ba gridBox box5'></span>
-                <span id = 'b6' class='ba gridBox box6'></span>
+                <span id = 'b6' class='ba gridBox box6'>&</span>
                 <span id = 'b7' class='ba gridBox box7'></span>
                 <span id = 'b8' class='ba gridBox box8'>3</span>
                 <span id = 'b9' class='ba gridBox box9'></span>
-                <span id = 'b10' class='ba gridBox box10'></span>
+                <span id = 'b10' class='ba gridBox box10'>&</span>
                 <span id = 'b11' class='ba gridBox box11'></span>
                 <span id = 'b12' class='ba gridBox box12'>4</span>
                 <span id = 'b13' class='ba gridBox box13'></span>
-                <span id = 'b14' class='ba gridBox box14'></span>
+                <span id = 'b14' class='ba gridBox box14'>&</span>
                 <span id = 'b15' class='ba gridBox box15'></span>
             </span>
             <span class = 'ride' data-drum="3">
                 <h4 class = "name">Ride</h3>
                 <span id = 'r0' class='ri gridBox box0'>1</span>
                 <span id = 'r1' class='ri gridBox box1'></span>
-                <span id = 'r2' class='ri gridBox box2'></span>
+                <span id = 'r2' class='ri gridBox box2'>&</span>
                 <span id = 'r3' class='ri gridBox box3'></span>
                 <span id = 'r4' class='ri gridBox box4'>2</span>
                 <span id = 'r5' class='ri gridBox box5'></span>
-                <span id = 'r6' class='ri gridBox box6'></span>
+                <span id = 'r6' class='ri gridBox box6'>&</span>
                 <span id = 'r7' class='ri gridBox box7'></span>
                 <span id = 'r8' class='ri gridBox box8'>3</span>
                 <span id = 'r9' class='ri gridBox box9'></span>
-                <span id = 'r10' class='ri gridBox box10'></span>
+                <span id = 'r10' class='ri gridBox box10'>&</span>
                 <span id = 'r11' class='ri gridBox box11'></span>
                 <span id = 'r12' class='ri gridBox box12'>4</span>
                 <span id = 'r13' class='ri gridBox box13'></span>
-                <span id = 'r14' class='ri gridBox box14'></span>
+                <span id = 'r14' class='ri gridBox box14'>&</span>
                 <span id = 'r15' class='ri gridBox box15'></span>
             </span>
         </div>
@@ -101,11 +121,17 @@
     
     
 
-    <audio class="hhsound" src="./sounds/hihat.wav"></audio>
+    <audio class="hhsound" src="./sounds/hihat1.wav"></audio>
     <audio class="snaresound" src="./sounds/snare.wav"></audio>
     <audio class="kicksound" src="./sounds/kick.wav"></audio>
     <audio class="ridesound" src="./sounds/ride.wav"></audio>
     <audio class="floorsound" src="./sounds/floor.wav"></audio>
+    <audio class='beat1' src="./sounds/beat1.m4a"></audio>
+    <audio class='beat2' src="./sounds/beat2.m4a"></audio>
+    <audio class='beat3' src="./sounds/beat3.m4a"></audio>
+    <audio class='beat4' src="./sounds/beat4.m4a"></audio>
+    <audio class='beat5' src="./sounds/beat5.m4a"></audio>
+    <audio class='beat6' src="./sounds/beat6.m4a"></audio>
 
     <script src='./script.js'></script>
 </body>

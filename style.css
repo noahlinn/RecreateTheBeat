@@ -1,3 +1,24 @@
+body{
+    width: 960;
+    height: 550;
+    margin: auto
+}
+.startConatiner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 960;
+    height: 550px
+}
+
+.level{     
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 960;
+    height: 550px
+}
+
 .gridContainer{
     outline: 5px solid black;
     display: flex;

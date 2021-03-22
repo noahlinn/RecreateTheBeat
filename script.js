@@ -1,24 +1,34 @@
 const levelTitle = document.querySelector('#levelHeader')
+const levelDiscription = document.querySelector('.discription')
 const levelContainer = document.querySelector('.level')
+const startContainer = document.querySelector('.startContainer')
 const gridBox = document.querySelectorAll('.gridBox')
 const submitButton = document.querySelector('#checkForWin')
 const playBackButton = document.querySelector('#playBack')
 const playButton = document.querySelector('.playBeat')
+const startButton = document.querySelector('#start')
 const hhSound = document.querySelector('.hhsound')
+hhSound.volume = .4
 const snSound = document.querySelector('.snaresound')
+snSound.volume = .8
 const kickSound = document.querySelector('.kicksound')
 const rideSound = document.querySelector('.ridesound')
+const lossContainer = document.querySelector('.loss')
+const tryAgainButton = document.querySelector('#tryAgain')
+const playAgainButton = document.querySelector('#playAgain')
+const winContainer = document.querySelector('.win')
+const beat1 = document.querySelector('.beat1')
+const beat2 = document.querySelector('.beat2')
+const beat3 = document.querySelector('.beat3')
+const beat4 = document.querySelector('.beat4')
+const beat5 = document.querySelector('.beat5')
+const beat6 = document.querySelector('.beat6')
+
 let playCurrentGrid = 0
 let level = 1
+let loss = 1
 let isPlaying = null
-
-
-
-// class Level {
-//     constructor(winCombintation)
-// }
-
-
+// let beatPlaying = false
 
 
 let currentGrid = [
@@ -31,21 +41,45 @@ let currentGrid = [
 const winLevel1 = [
     1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0,
     0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,
-    1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,
+    1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 ]
 
 const winLevel2 = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,
-    1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,
+    1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0,
     1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0
 ]
 
+const winLevel3 = [
+    1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0,
+    0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,
+    1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+]
 
-// let 
+const winLevel4 = [
+    1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0,
+    0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,
+    1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+]
 
+const winLevel5 = [
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,
+    1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0,
+    1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0
+]
 
+const winLevel6 = [
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,
+    1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0,
+    1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0
+]
+ 
 
 sequence = () =>{
     let each = playCurrentGrid % 16
@@ -97,20 +131,29 @@ rock = () => {
 //load page
 const initialize = event => {
     addClickToGrid(gridBox, currentGrid)
+
 }
 //checks for a win
 const checkForWin = (current, win) => {
     if (current.length !== win.length) return false;
 	for (var i = 0; i < current.length; i++) {
-		if (current[i] !== win[i]){ alert('Try Again!'); return false;}
+		if (current[i] !== win[i]){
+            // loss++;   
+            clearLevelsLoss();   
+            changeLevelHeader()
+            changeDiscription()
+            console.log(level, loss)
+            // alert('Try Again!'); 
+            return false;}
 	}
         alert(`That is the correct beat!`);console.log('shit yea')
         level ++
+        loss = 1
         // console.log(level)
         resetBoard()
         clearLevels()   
         changeLevelHeader()
-
+        changeDiscription()
 };
 //resets board to default
 const resetBoard = () => {
@@ -148,6 +191,23 @@ addSoundOnClick = (box, i) => {
         rideSound.play();
     }
 }
+
+startButton.addEventListener('click', () => {
+    startContainer.classList.add('hidden')
+    levelContainer.classList.remove('hidden')
+    letlevel = 1
+})
+
+tryAgainButton.addEventListener('click', () => {
+    lossContainer.classList.add('hidden')
+    startContainer.classList.remove('hidden')
+    level = 1
+})
+playAgainButton.addEventListener('click', () => {
+    winContainer.classList.add('hidden')
+    startContainer.classList.remove('hidden')
+})
+
 //on click you can hear what you created back 
 playBackButton.addEventListener('click', function (){ 
     console.log('play back button ')
@@ -156,6 +216,8 @@ playBackButton.addEventListener('click', function (){
 //on click it will play the beat you're supposed to recreate
 playButton.addEventListener('click', () => {
     console.log('play beat button')
+    playBeat()
+
 })
 //checks to see if what you created is correct 
 submitButton.addEventListener('click', () => {
@@ -177,10 +239,65 @@ const addClickToGrid = (box, current) =>{
 document.addEventListener('DOMContentLoaded', initialize);  
 
 clearLevels = () => {
-    if (level === 3){
+    if (level === 7){
         levelContainer.classList.add('hidden')
+        winContainer.classList.remove('hidden')
+        level = 1
+    }
+}   
+clearLevelsLoss = () => {
+    if (loss === 3){
+        level = 1
+        levelContainer.classList.add('hidden')
+        lossContainer.classList.remove('hidden')
+        loss = 1
+    }
+    else{
+        loss++
+        alert('Try Again!');
     }
 }
+
 changeLevelHeader = () => {
     levelTitle.innerHTML=`Level ${level}`
 }   
+changeDiscription = () => {
+    if(level === 1){
+        levelDiscription.innerHTML = "Let's start out easy! Quarter notes on the hi hats, 4 on the floor and snare on 2 & 4!"
+    }
+    else if(level === 2){
+        levelDiscription.innerHTML = "Keep the bass and snare going, but move your hand from the hi hats to the ride!"
+    }
+    else if(level === 3){
+        levelDiscription.innerHTML = "Alright! Let's mix it up! Let's go back to the hi hats, snare still on 2 & 4, BUT bass drum now on 1, 3 & the AND of 3!"
+    }
+    else if(level === 4){
+        levelDiscription.innerHTML = "We're getting somewhere! Now, play the hi hats twice as fast, keep the snare on 2 & 4 and add the AND of 1 to the bass drum!"
+    }
+    else if(level === 5){
+        levelDiscription.innerHTML = "Hell yea! Let's go back over to the ride and play 1/8th notes. Bass drum on 1 & 3 and the AND of every beat. Snare still rockin' on 2 & 4!"
+    }
+    else if(level === 6){
+        levelDiscription.innerHTML = "Let's introduce some 16th notes! Stay on the Ride. Snare keeps that 2 & 4. Here's the tricky part - bass drum on 1 AND & the A of 2 and then on 3."
+    }
+    
+}
+
+// playBeat = () => {
+//     if (beatPlaying){
+//         eval(`beat${level}`).pause();
+//         beatPlaying = false
+//         console.log(beatPlaying)
+//     }
+//     else{
+//         eval(`beat${level}`).play();
+//         console.log(beatPlaying)
+//         beatPlaying = true
+//     } 
+    
+// }
+playBeat = () => {
+    eval(`beat${level}`).currentTime = 0;
+    eval(`beat${level}`).play();
+
+}
