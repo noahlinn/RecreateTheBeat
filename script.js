@@ -79,7 +79,20 @@ const winLevel6 = [
     1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0,
     1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0
 ]
- 
+
+const winLevel7 = [
+    1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1,
+    0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,
+    1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+]
+
+const winLevel8 = [
+    0, 0, 1, 0, 0, 0, 1, 0, , 0, 1, 0, 0, 0, 1, 0,
+    0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,
+    1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+]
 
 sequence = () =>{
     let each = playCurrentGrid % 16
@@ -139,7 +152,7 @@ const checkForWin = (current, win) => {
 	for (var i = 0; i < current.length; i++) {
 		if (current[i] !== win[i]){
             // loss++;   
-            clearLevelsLoss();   
+            clearLevelsLoss() 
             changeLevelHeader()
             changeDiscription()
             console.log(level, loss)
@@ -239,7 +252,7 @@ const addClickToGrid = (box, current) =>{
 document.addEventListener('DOMContentLoaded', initialize);  
 
 clearLevels = () => {
-    if (level === 7){
+    if (level === 9){
         levelContainer.classList.add('hidden')
         winContainer.classList.remove('hidden')
         level = 1
@@ -251,6 +264,7 @@ clearLevelsLoss = () => {
         levelContainer.classList.add('hidden')
         lossContainer.classList.remove('hidden')
         loss = 1
+        resetBoard()
     }
     else{
         loss++
@@ -279,6 +293,12 @@ changeDiscription = () => {
     }
     else if(level === 6){
         levelDiscription.innerHTML = "Let's introduce some 16th notes! Stay on the Ride. Snare keeps that 2 & 4. Here's the tricky part - bass drum on 1 AND & the A of 2 and then on 3."
+    }
+    else if(level === 7){
+        levelDiscription.innerHTML = "Damn we're really rocking now! Play every 16th note besides 2 & 4 on the hats. Snare on 2 & 4. Bass drum on 1, the a of 1, the AND of 2, the e of 3 and the a of 4!"
+    }
+    else if(level === 8){
+        levelDiscription.innerHTML = "Alright sorry that last one was a little hard. Let's take it back a step... Its boots n cats time. DISCO BABY!"
     }
     
 }
