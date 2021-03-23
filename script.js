@@ -3,7 +3,7 @@ const levelDiscription = document.querySelector('.discription')
 const levelContainer = document.querySelector('.level')
 const startContainer = document.querySelector('.startContainer')
 const gridBox = document.querySelectorAll('.gridBox')
-const submitButton = document.querySelector('#checkForWin')
+const submitButton = document.querySelector('.bdpic')
 const playBackButton = document.querySelector('#playBack')
 const playButton = document.querySelector('.playBeat')
 const startButton = document.querySelector('#start')
@@ -100,27 +100,25 @@ const winLevel8 = [
 ]
 
 const winLevel9 = [
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-]
-
-const winLevel10 = [
     1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0,
     0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1,
     1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 ]
+const winLevel10 = [
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,
+    1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0,
+    1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0
+]
+
 
 sequence = () =>{
     let each = playCurrentGrid % 16
     liveBox = document.querySelectorAll(`.box${each}`)  
 
     liveBox.forEach((note) => {
-
         if (note.classList.contains('active')){
-            // note.classList.add('moving')
             if (note.classList.contains('hh')){
                 hhSound.currentTime = 0
                 hhSound.play();
@@ -138,15 +136,13 @@ sequence = () =>{
             if (note.classList.contains('ri')){
                 rideSound.currentTime = 0
                 rideSound.play()
-
             }
-
         }
-        // else{note.classList.add('moving')}
     })
+
     playCurrentGrid++
-    // console.log(liveBox)
 }
+
 //starts the sequence function 
 rock = () => {
     let tempo = 150;
@@ -320,32 +316,12 @@ changeDiscription = () => {
         levelDiscription.innerHTML = "Alright sorry that last one was a little hard. Let's take it back a step... Its boots n cats time. DISCO BABY!"
     }
     else if(level === 9){
-        levelDiscription.innerHTML = `Now that was fun... right? Okay, yea, play an exerpt out of Johnn Cage's 4'33"`
-    }
-    else if(level === 10){
         levelDiscription.innerHTML = `Got you with last one eh? SSX Tricky. Alright lets do something different with the snare drum. Match what I play!`
     }
-    else if(level === 11){
+    else if(level === 10){
         levelDiscription.innerHTML = `Alright that last one was actually too hard. If you got it... well... good for you. Last one. Let's go out with a blast!`
     }
 
-    
-    
-}
-
-// playBeat = () => {
-//     if (beatPlaying){
-//         eval(`beat${level}`).pause();
-//         beatPlaying = false
-//         console.log(beatPlaying)
-//     }
-//     else{
-//         eval(`beat${level}`).play();
-//         console.log(beatPlaying)
-//         beatPlaying = true
-//     } 
-    
-// }
 playBeat = () => {
     eval(`beat${level}`).currentTime = 0;
     eval(`beat${level}`).play();

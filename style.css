@@ -1,29 +1,74 @@
 body{
-    width: 960;
-    height: 550;
-    margin: auto
+    font-family: Arial, Helvetica, sans-serif;
+    width: 960px;
+    height: 550px;
+    margin: auto;
 }
+
 .startConatiner{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 960;
-    height: 550px
+    width: 960px;
+    height: 550px;
 }
 
-.level{     
+.loss{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 960;
-    height: 550px
+    width: 960px;
+    height: 550px;
+}
+.startButton{
+    display: flex;
+    justify-content: center;
+}
+
+.startHeader{
+    text-align: center;
+
+}
+
+.gameRules{
+    margin: auto;
+    width: 600px;
+}
+#rulesHeader{
+    text-align: center;
+}
+
+.level{     
+    width: 960px;
+    height: 550px;
+    position: relative;
+}
+#levelHeader{
+    text-align: center;
+}
+
+.discription{
+    text-align: center;
+}
+
+.playBeat{
+    height: 25px;
+    width: 150px;
+    margin: 0px 58% 20px 42%;
+}
+#playBack{
+    height: 25px;
+    width: 150px;
+}
+
+.bottomButtons{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 15px;
+    flex-direction: row-reverse;
 }
 
 .gridContainer{
     outline: 5px solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
     width: 630px;
 }
 .eachline{
@@ -31,6 +76,7 @@ body{
     justify-content: space-around;
 }
 .name{
+    display: flex;
     height: 25px;
     width: 50px;
     align-items: center;
@@ -65,9 +111,13 @@ body{
 }
 
 .gridBox{   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25%;
     width: 25px;
     height: 25px;
-    outline: 1px solid red;
+    border: 1px solid black;
     margin: 5px;
 }
 .fill{
@@ -75,11 +125,21 @@ body{
     opacity: 90%;
 }
 .moving{
-    outline: 1px solid greenyellow;
-
-    animation-duration: 1s;
+    border: 1px solid black;
+    /* animation-name: flash; */
+    /* animation-duration: .1s; */
+    animation: flash .1s infinite;
+}
+@keyframes flash{
+    100% {border: green;}
 }
 
 .hidden{
     display: none;
+}
+
+.bdpic{
+    width: 225px;
+    position: absolute;
+    margin: 205px 10px 0px 700px;
 }
