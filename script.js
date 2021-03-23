@@ -320,10 +320,13 @@ changeDiscription = () => {
     }
     else if(level === 10){
         levelDiscription.innerHTML = `Alright that last one was actually too hard. If you got it... well... good for you. Last one. Let's go out with a blast!`
-    }
+    }      
+}
+
 
 playBeat = () => {
     eval(`beat${level}`).currentTime = 0;
     eval(`beat${level}`).play();
 
 }
+    
