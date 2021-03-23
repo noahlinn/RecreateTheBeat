@@ -23,6 +23,11 @@ const beat3 = document.querySelector('.beat3')
 const beat4 = document.querySelector('.beat4')
 const beat5 = document.querySelector('.beat5')
 const beat6 = document.querySelector('.beat6')
+const beat7 = document.querySelector('.beat7')
+const beat8 = document.querySelector('.beat8')
+const beat9 = document.querySelector('.beat9')
+const beat10 = document.querySelector('.beat10')
+const beat11 = document.querySelector('.beat11')
 
 let playCurrentGrid = 0
 let level = 1
@@ -88,9 +93,23 @@ const winLevel7 = [
 ]
 
 const winLevel8 = [
-    0, 0, 1, 0, 0, 0, 1, 0, , 0, 1, 0, 0, 0, 1, 0,
+    0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0,
     0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,
     1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+]
+
+const winLevel9 = [
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+]
+
+const winLevel10 = [
+    1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0,
+    0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1,
+    1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 ]
 
@@ -252,7 +271,7 @@ const addClickToGrid = (box, current) =>{
 document.addEventListener('DOMContentLoaded', initialize);  
 
 clearLevels = () => {
-    if (level === 9){
+    if (level === 12){
         levelContainer.classList.add('hidden')
         winContainer.classList.remove('hidden')
         level = 1
@@ -300,6 +319,17 @@ changeDiscription = () => {
     else if(level === 8){
         levelDiscription.innerHTML = "Alright sorry that last one was a little hard. Let's take it back a step... Its boots n cats time. DISCO BABY!"
     }
+    else if(level === 9){
+        levelDiscription.innerHTML = `Now that was fun... right? Okay, yea, play an exerpt out of Johnn Cage's 4'33"`
+    }
+    else if(level === 10){
+        levelDiscription.innerHTML = `Got you with last one eh? SSX Tricky. Alright lets do something different with the snare drum. Match what I play!`
+    }
+    else if(level === 11){
+        levelDiscription.innerHTML = `Alright that last one was actually too hard. If you got it... well... good for you. Last one. Let's go out with a blast!`
+    }
+
+    
     
 }
 
