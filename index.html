@@ -8,6 +8,7 @@
     <title>Document</title>
 </head>
 <body>
+    
 <div class = 'startContainer'>
     <h1 class = 'startHeader'>Recreate The Beat!</h1>
     <div class = gameRules>
@@ -18,10 +19,10 @@
             <li>If you fail to complete a beat in 3 attempts, you lose and are returned to the start page</li>
             <li>To hear what you are to recreate, click the "Hear Beat" above the drum grid</li>
             <li>To hear what YOU created, click the "Hear Your Beat" button below the grid</li>
-            <li>To submit your beat to be checked, click the Submit Drum to the right of the grid/li>
+            <li>To submit your beat to be checked, click the Submit Drum to the right of the grid</li>
             <li>The grid consists of 4 beats subdivided into 16th notes</li>
             <li>16th notes are counted 1 e AND a 2 e AND a...</li>
-            <li>Most importantly, have fun!</li>
+            <li>Most importantly, have fun and don't suck!</li>
         </ul>
     </div>
     <div class="startButton">
@@ -29,17 +30,22 @@
     </div>
 </div>
 <div class = 'loss hidden'>
-    <h1>You loose!</h1>
+    <h1 class = 'lossHeader'>You loose!</h1>
+    <div class = 'lossContainer'>
     <p>Maybe you should practice...</p>
+</div>
     <button id = 'tryAgain'>Try Again?</button>
 </div>
 <div class = 'win hidden'>
-    <h1>You Win!</h1>
-    <p>You're not bad!</p>
+    <h1 class = 'winHeader'>You Win!</h1>
+    <div class = 'winMiddle'>
+    <p>You're not bad! Well... you're at least better than Lars Ulrich...</p>
+    <img id = 'lars' src = "./images/lars.png">
+    </div>
     <button id = 'playAgain'>Play Again?</button>
 </div>
     <div class = 'level hidden'>
-        <img class='bdpic' src="./bassDrum.png">
+        <img class='bdpic' src="./images/bassDrum.png">
         <h1 id="levelHeader">Level 1</h1>
         <h3>Rock the Beat!</h3>
         <p class = "discription">Let's start out easy! Quarter notes on the hi hat, 4 on the floor and snare on 2 & 4!</p>

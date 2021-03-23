@@ -113,7 +113,7 @@ const winLevel10 = [
 ]
 
 
-sequence = () =>{
+playUserCreated = () =>{
     let each = playCurrentGrid % 16
     liveBox = document.querySelectorAll(`.box${each}`)  
 
@@ -152,7 +152,7 @@ rock = () => {
     }
     else{
         isPlaying = setInterval(()=>{
-            sequence();
+            playUserCreated();
         }, tempo);
     }
 }
@@ -251,6 +251,8 @@ playButton.addEventListener('click', () => {
 submitButton.addEventListener('click', () => {
     levelAnswer=eval(`winLevel${level}`)
     checkForWin(currentGrid, levelAnswer)
+    clearInterval(isPlaying)
+    isPlaying = null
 })
 //lets the grid to become clickable 
 const addClickToGrid = (box, current) =>{
@@ -267,7 +269,7 @@ const addClickToGrid = (box, current) =>{
 document.addEventListener('DOMContentLoaded', initialize);  
 
 clearLevels = () => {
-    if (level === 12){
+    if (level === 11){
         levelContainer.classList.add('hidden')
         winContainer.classList.remove('hidden')
         level = 1
@@ -310,13 +312,13 @@ changeDiscription = () => {
         levelDiscription.innerHTML = "Let's introduce some 16th notes! Stay on the Ride. Snare keeps that 2 & 4. Here's the tricky part - bass drum on 1 AND & the A of 2 and then on 3."
     }
     else if(level === 7){
-        levelDiscription.innerHTML = "Damn we're really rocking now! Play every 16th note besides 2 & 4 on the hats. Snare on 2 & 4. Bass drum on 1, the a of 1, the AND of 2, the e of 3 and the a of 4!"
+        levelDiscription.innerHTML = "Very Nice! Play every 16th note besides 2 & 4 on the hats. Snare on 2 & 4. Bass drum on 1, the a of 1, the AND of 2, the e of 3 and the a of 4!"
     }
     else if(level === 8){
         levelDiscription.innerHTML = "Alright sorry that last one was a little hard. Let's take it back a step... Its boots n cats time. DISCO BABY!"
     }
     else if(level === 9){
-        levelDiscription.innerHTML = `Got you with last one eh? SSX Tricky. Alright lets do something different with the snare drum. Match what I play!`
+        levelDiscription.innerHTML = `So you think you're hot shit? Add some snare hits and match what I play! LISTEN CLOSELY!`
     }
     else if(level === 10){
         levelDiscription.innerHTML = `Alright that last one was actually too hard. If you got it... well... good for you. Last one. Let's go out with a blast!`
@@ -329,4 +331,3 @@ playBeat = () => {
     eval(`beat${level}`).play();
 
 }
-    
