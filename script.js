@@ -33,8 +33,6 @@ let playCurrentGrid = 0
 let level = 1
 let loss = 1
 let isPlaying = null
-// let beatPlaying = false
-
 
 let currentGrid = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -166,12 +164,10 @@ const checkForWin = (current, win) => {
     if (current.length !== win.length) return false;
 	for (var i = 0; i < current.length; i++) {
 		if (current[i] !== win[i]){
-            // loss++;   
             clearLevelsLoss() 
             changeLevelHeader()
             changeDiscription()
             console.log(level, loss)
-            // alert('Try Again!'); 
             return false;}
 	}
         alert(`That is the correct beat!`);console.log('shit yea')
